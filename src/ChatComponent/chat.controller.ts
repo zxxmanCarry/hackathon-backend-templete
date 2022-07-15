@@ -1,17 +1,25 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
 import { ChatService } from './chat.service';
 import { Chat } from './entities/chat.entity';
 
 @Controller('chat')
 export class ChatController {
   constructor(private readonly chatService: ChatService) {}
-  
+
   @Get()
   async findAll() {
     const chatList = await this.chatService.findAll();
     return {
       data: chatList,
-      statusCode: 200
+      statusCode: 200,
     };
   }
 
@@ -20,20 +28,17 @@ export class ChatController {
     const chat = await this.chatService.findOne(id);
     return {
       data: chat,
-      statusCode: 200
+      statusCode: 200,
     };
   }
 
   @Put(':id')
-  async update(
-    @Param('id') id: number,
-    @Body() chat: Chat
-  ) {
+  async update(@Param('id') id: number, @Body() chat: Chat) {
     await this.chatService.update(id, chat);
     return {
       data: chat,
-      statusCode: 200
-    }
+      statusCode: 200,
+    };
   }
 
   @Post()
@@ -41,16 +46,16 @@ export class ChatController {
     await this.chatService.create(chat);
     return {
       data: chat,
-      statusCode: 200
-    }
+      statusCode: 200,
+    };
   }
 
   @Delete(':id')
   async delete(@Param('id') id: number) {
     await this.chatService.delete(id);
     return {
-      data: { chatId : id },
-      statusCode: 200
-    }
+      data: { chatId: id },
+      statusCode: 200,
+    };
   }
 }

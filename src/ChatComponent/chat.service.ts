@@ -5,11 +5,11 @@ import { Chat } from './entities/chat.entity';
 
 @Injectable()
 export class ChatService {
-  constructor (
+  constructor(
     @InjectRepository(Chat)
-    private readonly chatRepository: Repository<Chat>
+    private readonly chatRepository: Repository<Chat>,
   ) {}
-  
+
   async create(chat: Chat) {
     return await this.chatRepository.save(chat);
   }
@@ -19,10 +19,7 @@ export class ChatService {
   }
 
   async update(id: number, chat: Chat) {
-    return await this.chatRepository.update(
-      { id: id },
-      { ...chat }
-    )
+    return await this.chatRepository.update({ id: id }, { ...chat });
   }
 
   async findOne(id: number) {

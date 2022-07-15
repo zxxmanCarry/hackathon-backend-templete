@@ -10,23 +10,20 @@ export class UserService {
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
   ) {}
-  
+
   async create(user: User) {
     return await this.userRepository.save(user);
   }
 
-  async delete(id: number) {
+  async delete(id: string) {
     return await this.userRepository.delete({ id: id });
   }
 
-  async update(id: number, user: User) {
-    return await this.userRepository.update(
-      { id: id },
-      { ...user }
-    )
+  async update(id: string, user: User) {
+    return await this.userRepository.update({ id: id }, { ...user });
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     return await this.userRepository.findOneBy({ id: id });
   }
 

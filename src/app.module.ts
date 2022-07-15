@@ -9,6 +9,7 @@ import { HospitalModule } from './HospitalComponent/hospital.module';
 import { PharmacyModule } from './PharmacyComponent/pharmacy.module';
 import { ChatModule } from './ChatComponent/chat.module';
 import { MessageModule } from './MessageComponent/message.module';
+import { AuthModule } from './AuthComponent/auth.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { MessageModule } from './MessageComponent/message.module';
     PharmacyModule,
     ChatModule,
     MessageModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

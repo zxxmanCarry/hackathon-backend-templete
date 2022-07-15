@@ -1,20 +1,25 @@
-import { Chat } from "src/ChatComponent/entities/chat.entity";
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class Message {
-    @PrimaryGeneratedColumn()
-    id: number;
-    
-    @Column({ nullable: false })
-    chatId: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column({ nullable: false })
-    content: string;
+  @Column({ nullable: false })
+  chatId: number;
 
-    @CreateDateColumn()
-    createdAt: Date;
+  @Column({ nullable: false })
+  content: string;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 }
