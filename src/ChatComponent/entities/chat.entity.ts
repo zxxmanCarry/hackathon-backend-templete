@@ -1,4 +1,5 @@
 import {
+  Column,
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
@@ -9,6 +10,12 @@ import {
 export class Chat {
   @PrimaryGeneratedColumn()
   id: number;
+
+  @Column({ nullable: false })
+  doctorId: string;
+
+  @Column({ nullable: false })
+  userId: string;
 
   @CreateDateColumn()
   createdAt: Date;
