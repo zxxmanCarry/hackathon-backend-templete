@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import Joi from 'joi';
+import * as Joi from 'joi';
 import { UserService } from '../UserComponent/user.service';
 
 export interface Account {
@@ -12,13 +12,12 @@ export class AuthService {
   constructor(private readonly userService: UserService) {}
 
   async Register(body: Account) {
-    const schema = Joi.object().keys({
+    const validate = Joi.object({
       id: Joi.string().alphanum().min(2).max(10).required(),
-      pw: Joi.string().required(),
-    });
-    const result = schema.validate(body);
-    if (result.error) return {
-      status: result.error,
+      pw: Joi.string().min(8).required(),
+    }).validate(body);
+    if (validate.error) return {
+      status: validate.error,
       statusCode: 400
     };
 
