@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 import { UserModule } from './UserComponent/user.module';
 import { HospitalModule } from './HospitalComponent/hospital.module';
-import { PharmacyModule } from './HospitalComponent copy/pharmacy.module';
+import { PharmacyModule } from './PharmacyComponent/pharmacy.module';
 
 @Module({
   imports: [
