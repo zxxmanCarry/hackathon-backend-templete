@@ -15,6 +15,9 @@ export class Message {
   chatId: number;
 
   @Column({ nullable: false })
+  userId: string;
+
+  @Column({ nullable: false })
   content: string;
 
   @CreateDateColumn()

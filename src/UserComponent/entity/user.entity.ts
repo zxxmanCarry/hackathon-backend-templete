@@ -9,16 +9,13 @@ export class User {
   password: string;
 
   @Column({ length: 10, nullable: false })
-  username: string;
+  name: string;
 
   @Column({ nullable: false })
   type: 'doctor' | 'default';
 
   @Column({ nullable: false })
   age: number;
-
-  @Column({ length: 40, unique: true })
-  job: string;
 
   @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
   created_at: string;
