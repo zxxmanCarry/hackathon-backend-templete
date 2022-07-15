@@ -12,6 +12,9 @@ export class User {
   username: string;
 
   @Column({ nullable: false })
+  type: 'doctor' | 'default';
+
+  @Column({ nullable: false })
   age: number;
 
   @Column({ length: 40, unique: true })

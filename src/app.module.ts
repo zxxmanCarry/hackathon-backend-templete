@@ -7,6 +7,8 @@ dotenv.config();
 import { UserModule } from './UserComponent/user.module';
 import { HospitalModule } from './HospitalComponent/hospital.module';
 import { PharmacyModule } from './PharmacyComponent/pharmacy.module';
+import { ChatModule } from './ChatComponent/chat.module';
+import { MessageModule } from './MessageComponent/message.module';
 
 @Module({
   imports: [
@@ -23,6 +25,8 @@ import { PharmacyModule } from './PharmacyComponent/pharmacy.module';
     UserModule,
     HospitalModule,
     PharmacyModule,
+    ChatModule,
+    MessageModule,
   ],
   controllers: [AppController],
   providers: [AppService],
